@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clicking and get your color</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    body{
+        background-image: linear-gradient(to right,#061937,yellowgreen);
+      
+    }
+    #container5{
+        background: rgba(255, 255, 255, 0.3);
+backdrop-filter: blur(10px);
+    }
+    </style>
+<body style="  background-image: linear-gradient(to right,#061937,yellowgreen);" id="tip">
+    <div class="flex justify-center mt-36">
+       <div style=""> 
+        <div class="flex">
+            <button  id="button1"style="background-color: #061937; border-radius: 20px; color: aliceblue; font-size: 10px; width: 140px; height: 20px;">#061937</button>
+            <button  id="button2"style=" background-color: yellowgreen; border-radius: 20px; color: aliceblue; font-size: 10px; width: 140px;" class="ml-4">#061937</button>
+            </div>
+            <div>
+                <h5 style="color: aliceblue;" class="flex justify-center" id="copy">Copy your code here</h5>
+                </div>
+                <br>
+              <div class="grid grid-cols-1 text-center" id="container5">
+                <div>
+                    <h5  id="good2"style="color: aliceblue; font-size: 13px;"> background-image: linear-gradient(to right.</h5>
+                </div>
+                <div>
+                    <h5  id="good"style="color: aliceblue; font-size: 13px;">#061937,yellowgreen)</h5>
+                </div>
+                </div>
+       </div>
+        </div>
+    </body>
+        <script>
+      let t=document.getElementById('tip')
+            let button1=document.getElementById('button1')
+            let button2=document.getElementById('button2')
+            let final=document.getElementById('good')
+            let final2=document.getElementById('container5')
+              const generatenew=()=>{
+                let str=""
+                let arr="0123456789abcdef"
+                str+="#"
+                for(let i=0;i<6;i++){
+                    let text1=Math.random()*16
+                    str+=arr[parseInt(text1)]
+                }
+         t.style.backgroundImage=`linear-gradient(to right,${str}, ${button2.innerText})`
+         button1.innerText=`${str}`
+final.innerText=`${str},${button2.innerText})`
+            }
+            const generatenew2=()=>{
+                let str=""
+                let arr="0123456789abcdef"
+                str+="#"
+                for(let i=0;i<6;i++){
+                    let text1=Math.random()*16
+                 
+                    str+=arr[parseInt(text1)]
+                }
+         t.style.backgroundImage=`linear-gradient(to right,${button1.innerText}, ${str})`
+         button2.innerText=`${str}`
+         final.innerText=`${button1.innerText},${str})`
+            }
+            button1.onclick=()=>{
+              generatenew()
+            }
+            button2.onclick=()=>{
+generatenew2()
+            }
+            let er=document.getElementById('copy')
+            er.onclick=()=>{
+
+                navigator.clipboard.writeText(final2.innerText)
+              
+            }
+        </script>
+
+</html>
